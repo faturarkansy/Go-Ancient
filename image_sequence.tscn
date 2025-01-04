@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpy4tdiod0e4b"]
+
+[ext_resource type="Script" path="res://image_sequence.gd" id="1_smctu"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_smctu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

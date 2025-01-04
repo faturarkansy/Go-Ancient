@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://b25jnwfkrlare"]
+
+[ext_resource type="Script" path="res://fakechest_level1.gd" id="1_miyu7"]
+[ext_resource type="Texture2D" uid="uid://dxk4usx3v6kgx" path="res://open_chest.png" id="2_a4oto"]
+[ext_resource type="Texture2D" uid="uid://dxtuvu4mokeph" path="res://close_chest.png" id="3_2sa1r"]
+[ext_resource type="Texture2D" uid="uid://hpkkbtwjttqm" path="res://game assets/open_chest_zonk.png" id="3_iea0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ann5m"]
+size = Vector2(81, 59)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lolot"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[node name="Fake_Chest" type="StaticBody2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_miyu7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -12.5)
+shape = SubResource("RectangleShape2D_ann5m")
+
+[node name="OpenChest" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_a4oto")
+
+[node name="OpenChestZonk" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("3_iea0w")
+
+[node name="CloseChest" type="Sprite2D" parent="Area2D"]
+position = Vector2(-0.249999, -0.12501)
+scale = Vector2(1.04688, 1.09483)
+texture = ExtResource("3_2sa1r")
+
+[node name="InteractLabel" type="Label" parent="Area2D"]
+offset_left = -40.0
+offset_top = -65.0
+offset_right = 40.0
+offset_bottom = -46.0
+label_settings = SubResource("LabelSettings_lolot")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_Area2D_body_exited"]
